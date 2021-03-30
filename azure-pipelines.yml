@@ -36,3 +36,13 @@ steps:
     xcUITestIpaFile: './SuperDeker.ipa'
     runTests: false
     showDebugOutput: true
+
+- task: InstallAppleCertificate@2
+  inputs:
+    certSecureFile: 'Certificates.p12'
+    certPwd: 'Password1234'
+    keychain: 'temp'
+- task: InstallAppleProvisioningProfile@1
+  inputs:
+    provisioningProfileLocation: 'secureFiles'
+    provProfileSecureFile: 'SuperDeker_Version_1_App (2).mobileprovision'
